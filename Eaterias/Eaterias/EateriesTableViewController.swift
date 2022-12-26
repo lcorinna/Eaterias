@@ -16,7 +16,7 @@ class EateriesTableViewController: UITableViewController {
         Restaurant(name: "funny cat", type: "fast food", location: "Tahiti", image: "funny cat.jpg", isVisited: false),
         Restaurant(name: "donuts", type: "restaurant", location: "Miami", image: "donuts.jpg", isVisited: false),
         Restaurant(name: "Assol put?", type: "fast food", location: "Anapa", image: "Assol put?.jpg", isVisited: false),
-        Restaurant(name: "space", type: "cafe", location: "Ilsky village", image: "space.jpg", isVisited: false),
+        Restaurant(name: "space", type: "cafe", location: "Pretoria", image: "space.jpg", isVisited: false),
         Restaurant(name: "bitch beach", type: "restaurant", location: "Volgograd", image: "bitch beach.jpg", isVisited: false),
         Restaurant(name: "hot dogs", type: "fast food", location: "Berlin", image: "hot dogs.jpg", isVisited: false),
         Restaurant(name: "insides", type: "eatery", location: "Vatican", image: "insides.jpg", isVisited: false),

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -84,6 +85,36 @@
             </objects>
             <point key="canvasLocation" x="834.78260869565224" y="-10.044642857142856"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="rqh-Lt-kNo">
+            <objects>
+                <viewController id="Qwz-7g-9dN" customClass="MapViewController" customModule="Eaterias" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TdM-2B-ndS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2Hs-Lg-3GD">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="G0u-aq-Cnm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G0u-aq-Cnm" firstAttribute="trailing" secondItem="2Hs-Lg-3GD" secondAttribute="trailing" id="91N-x2-WGh"/>
+                            <constraint firstItem="2Hs-Lg-3GD" firstAttribute="leading" secondItem="G0u-aq-Cnm" secondAttribute="leading" id="QcQ-eY-fLw"/>
+                            <constraint firstItem="G0u-aq-Cnm" firstAttribute="bottom" secondItem="2Hs-Lg-3GD" secondAttribute="bottom" id="YgU-iD-gvL"/>
+                            <constraint firstItem="2Hs-Lg-3GD" firstAttribute="top" secondItem="G0u-aq-Cnm" secondAttribute="top" id="vD9-hg-WIB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="txq-DV-MLh"/>
+                    <connections>
+                        <outlet property="mapView" destination="2Hs-Lg-3GD" id="j1y-M5-rMX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i7h-gR-tAc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1519" y="-686"/>
+        </scene>
         <!--Eatery Detail View Controller-->
         <scene sceneID="dFY-sy-FDv">
             <objects>
@@ -159,11 +190,27 @@
                                     <segue destination="b1V-Uw-qg2" kind="showDetail" id="aLa-3B-62d"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRz-5d-Tlf">
+                                <rect key="frame" x="324" y="188" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="cBL-kl-leo"/>
+                                    <constraint firstAttribute="width" secondItem="gRz-5d-Tlf" secondAttribute="height" multiplier="1:1" id="vyf-hA-Yf8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="map" symbolScale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="Qwz-7g-9dN" kind="show" identifier="mapSegue" id="Wvk-Fg-w35"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pcv-Oi-elw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="gRz-5d-Tlf" firstAttribute="top" secondItem="PN4-no-Lq6" secondAttribute="bottom" constant="20" id="2RD-UM-d8F"/>
                             <constraint firstItem="uCn-ch-rx4" firstAttribute="leading" secondItem="pcv-Oi-elw" secondAttribute="leading" id="DgR-QM-7Fy"/>
+                            <constraint firstItem="gRz-5d-Tlf" firstAttribute="leading" secondItem="uCn-ch-rx4" secondAttribute="trailing" constant="-90" id="Dsb-Vs-try"/>
                             <constraint firstItem="pcv-Oi-elw" firstAttribute="bottom" secondItem="uCn-ch-rx4" secondAttribute="bottom" id="TQH-H5-u2W"/>
                             <constraint firstItem="pcv-Oi-elw" firstAttribute="trailing" secondItem="uCn-ch-rx4" secondAttribute="trailing" id="Xk0-oo-PWp"/>
                             <constraint firstItem="pcv-Oi-elw" firstAttribute="trailing" secondItem="PN4-no-Lq6" secondAttribute="trailing" constant="10" id="icB-JI-Zb3"/>
@@ -175,6 +222,7 @@
                     <navigationItem key="navigationItem" id="D36-yA-mQy"/>
                     <connections>
                         <outlet property="imageView" destination="pfI-oJ-1us" id="d9R-QA-vFP"/>
+                        <outlet property="mapButoon" destination="gRz-5d-Tlf" id="pHa-Fc-tUQ"/>
                         <outlet property="rateButton" destination="PN4-no-Lq6" id="LHV-eW-ITQ"/>
                         <outlet property="tableView" destination="uCn-ch-rx4" id="23L-SZ-fSD"/>
                     </connections>
@@ -183,10 +231,10 @@
             </objects>
             <point key="canvasLocation" x="1518.840579710145" y="-10.044642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Rate View Controller-->
         <scene sceneID="8RE-kW-vbk">
             <objects>
-                <viewController id="b1V-Uw-qg2" sceneMemberID="viewController">
+                <viewController id="b1V-Uw-qg2" customClass="RateViewController" customModule="Eaterias" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dF1-Q5-L7y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,7 +242,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rateBackground" translatesAutoresizingMaskIntoConstraints="NO" id="K8i-DB-Tw8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWU-f6-ocr">
+                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWU-f6-ocr">
                                 <rect key="frame" x="354" y="10" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Orp-Ol-wWJ"/>
@@ -203,22 +251,76 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="close"/>
                                 <connections>
-                                    <segue destination="Jjr-1I-vx8" kind="unwind" unwindAction="unwindSegueWithSegue:" id="etr-Rb-RC2"/>
+                                    <action selector="rateRestaurantWithSender:" destination="b1V-Uw-qg2" eventType="touchUpInside" id="0NY-De-cXG"/>
+                                    <segue destination="Jjr-1I-vx8" kind="unwind" identifier="unwindSegueToDVC" unwindAction="unwindSegueWithSegue:" id="etr-Rb-RC2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evaluation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8g-VR-A7f">
+                                <rect key="frame" x="129" y="239" width="156" height="42.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="156" id="hJ6-2D-WKb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="35"/>
+                                <color key="textColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Lv-TW-xV8">
+                                <rect key="frame" x="33.5" y="371.5" width="347" height="99"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOn-5z-OKN">
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="99"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="bad"/>
+                                        <connections>
+                                            <action selector="rateRestaurantWithSender:" destination="b1V-Uw-qg2" eventType="touchUpInside" id="mpS-8h-T5Y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZn-NS-CqT">
+                                        <rect key="frame" x="119" y="0.0" width="109" height="99"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="good"/>
+                                        <connections>
+                                            <action selector="rateRestaurantWithSender:" destination="b1V-Uw-qg2" eventType="touchUpInside" id="Ogx-sq-lo9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvV-IH-80u">
+                                        <rect key="frame" x="238" y="0.0" width="109" height="99"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="brilliant"/>
+                                        <connections>
+                                            <action selector="rateRestaurantWithSender:" destination="b1V-Uw-qg2" eventType="touchUpInside" id="9LN-gy-lLi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="347" id="3VZ-5i-JjI"/>
+                                    <constraint firstAttribute="height" constant="99" id="4xn-E6-hj5"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TVm-4J-KQU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="NWU-f6-ocr" firstAttribute="top" secondItem="TVm-4J-KQU" secondAttribute="top" constant="10" id="44k-ZP-Na0"/>
+                            <constraint firstItem="kZn-NS-CqT" firstAttribute="centerX" secondItem="K8i-DB-Tw8" secondAttribute="centerX" id="8OK-SQ-fU4"/>
+                            <constraint firstItem="2Lv-TW-xV8" firstAttribute="top" secondItem="r8g-VR-A7f" secondAttribute="bottom" constant="90" id="909-lC-8wh"/>
                             <constraint firstItem="TVm-4J-KQU" firstAttribute="trailing" secondItem="K8i-DB-Tw8" secondAttribute="trailing" id="AJi-9E-GZc"/>
+                            <constraint firstItem="2Lv-TW-xV8" firstAttribute="centerY" secondItem="K8i-DB-Tw8" secondAttribute="centerY" id="HBj-jr-uBq"/>
                             <constraint firstItem="K8i-DB-Tw8" firstAttribute="leading" secondItem="TVm-4J-KQU" secondAttribute="leading" id="XO5-kM-h5b"/>
                             <constraint firstItem="NWU-f6-ocr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TVm-4J-KQU" secondAttribute="leading" symbolic="YES" id="YI7-vK-6l5"/>
                             <constraint firstItem="K8i-DB-Tw8" firstAttribute="top" secondItem="TVm-4J-KQU" secondAttribute="top" id="bzK-XB-qF4"/>
                             <constraint firstItem="TVm-4J-KQU" firstAttribute="trailing" secondItem="NWU-f6-ocr" secondAttribute="trailing" constant="10" id="hP1-Er-qZo"/>
                             <constraint firstAttribute="bottom" secondItem="K8i-DB-Tw8" secondAttribute="bottom" id="oie-cZ-Ocd"/>
+                            <constraint firstItem="2Lv-TW-xV8" firstAttribute="centerX" secondItem="K8i-DB-Tw8" secondAttribute="centerX" id="sv7-ue-jRv"/>
+                            <constraint firstItem="r8g-VR-A7f" firstAttribute="centerX" secondItem="K8i-DB-Tw8" secondAttribute="centerX" id="ux1-yL-6G4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="badButton" destination="uOn-5z-OKN" id="Yzo-JA-VJf"/>
+                        <outlet property="brilliantButton" destination="jvV-IH-80u" id="hqK-py-8UT"/>
+                        <outlet property="goodButton" destination="kZn-NS-CqT" id="vRN-z9-h9j"/>
+                        <outlet property="ratingStackView" destination="2Lv-TW-xV8" id="gl9-mU-cCb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O2q-PW-zTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Jjr-1I-vx8" userLabel="Exit" sceneMemberID="exit"/>
@@ -245,10 +347,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bad" width="85" height="85"/>
+        <image name="brilliant" width="85" height="85"/>
         <image name="close" width="50" height="50"/>
         <image name="good" width="85" height="85"/>
+        <image name="map" width="50" height="50"/>
         <image name="rateBackground" width="200" height="286"/>
         <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>

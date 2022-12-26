@@ -17,6 +17,9 @@
 		2229BE2129531F87001DDA97 /* EateriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229BE2029531F87001DDA97 /* EateriesTableViewController.swift */; };
 		2229BE2329532268001DDA97 /* EateriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2229BE2229532268001DDA97 /* EateriesTableViewCell.swift */; };
 		223DAF442955F265009AEA76 /* EateryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223DAF432955F265009AEA76 /* EateryDetailViewController.swift */; };
+		22A0BBC22959BF80004D504F /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0BBC12959BF80004D504F /* RateViewController.swift */; };
+		22DD8F1D2959F711003BE28A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DD8F1C2959F711003BE28A /* MapViewController.swift */; };
+		22DD8F202959F778003BE28A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DD8F1F2959F778003BE28A /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		2229BE2029531F87001DDA97 /* EateriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateriesTableViewController.swift; sourceTree = "<group>"; };
 		2229BE2229532268001DDA97 /* EateriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateriesTableViewCell.swift; sourceTree = "<group>"; };
 		223DAF432955F265009AEA76 /* EateryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EateryDetailViewController.swift; sourceTree = "<group>"; };
+		22A0BBC12959BF80004D504F /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		22DD8F1C2959F711003BE28A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		22DD8F1F2959F778003BE28A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22DD8F202959F778003BE28A /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +66,7 @@
 			children = (
 				2229BE0B29531F31001DDA97 /* Eaterias */,
 				2229BE0A29531F31001DDA97 /* Products */,
+				22DD8F1E2959F778003BE28A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,8 +83,10 @@
 			children = (
 				2222B2E629571E5E00E65C3C /* Detail */,
 				2229BE0C29531F31001DDA97 /* AppDelegate.swift */,
+				22DD8F1C2959F711003BE28A /* MapViewController.swift */,
 				2229BE0E29531F31001DDA97 /* SceneDelegate.swift */,
 				2229BE1229531F31001DDA97 /* Main.storyboard */,
+				22A0BBC12959BF80004D504F /* RateViewController.swift */,
 				2229BE2229532268001DDA97 /* EateriesTableViewCell.swift */,
 				2229BE2029531F87001DDA97 /* EateriesTableViewController.swift */,
 				2222B2E229570EC600E65C3C /* Restaurant.swift */,
@@ -85,6 +95,14 @@
 				2229BE1A29531F32001DDA97 /* Info.plist */,
 			);
 			path = Eaterias;
+			sourceTree = "<group>";
+		};
+		22DD8F1E2959F778003BE28A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22DD8F1F2959F778003BE28A /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,8 +180,10 @@
 				2229BE0D29531F31001DDA97 /* AppDelegate.swift in Sources */,
 				223DAF442955F265009AEA76 /* EateryDetailViewController.swift in Sources */,
 				2222B2E329570EC600E65C3C /* Restaurant.swift in Sources */,
+				22DD8F1D2959F711003BE28A /* MapViewController.swift in Sources */,
 				2229BE2129531F87001DDA97 /* EateriesTableViewController.swift in Sources */,
 				2229BE0F29531F31001DDA97 /* SceneDelegate.swift in Sources */,
+				22A0BBC22959BF80004D504F /* RateViewController.swift in Sources */,
 				2229BE2329532268001DDA97 /* EateriesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
