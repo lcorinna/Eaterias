@@ -6,23 +6,29 @@
 //
 
 import UIKit
+import CoreData
 
 class EateriesTableViewController: UITableViewController {
     
-    var restaurants: [Restaurant] = [
-        Restaurant(name: "pushok", type: "eatery", location: "Tokyo", image: "pushok.jpg", isVisited: false),
-        Restaurant(name: "cookies", type: "restaurant", location: "Oman", image: "cookies.jpg", isVisited: false),
-        Restaurant(name: "flowers", type: "cafe", location: "Rotterdam", image: "flowers.jpg", isVisited: false),
-        Restaurant(name: "funny cat", type: "fast food", location: "Tahiti", image: "funny cat.jpg", isVisited: false),
-        Restaurant(name: "donuts", type: "restaurant", location: "Miami", image: "donuts.jpg", isVisited: false),
-        Restaurant(name: "Assol put?", type: "fast food", location: "Anapa", image: "Assol put?.jpg", isVisited: false),
-        Restaurant(name: "space", type: "cafe", location: "Pretoria", image: "space.jpg", isVisited: false),
-        Restaurant(name: "bitch beach", type: "restaurant", location: "Volgograd", image: "bitch beach.jpg", isVisited: false),
-        Restaurant(name: "hot dogs", type: "fast food", location: "Berlin", image: "hot dogs.jpg", isVisited: false),
-        Restaurant(name: "insides", type: "eatery", location: "Vatican", image: "insides.jpg", isVisited: false),
-        Restaurant(name: "horse meat (halal)", type: "eatery", location: "Moscow", image: "horse meat (halal)", isVisited: false)]
+    var fetchResultController: NSFetchedResultsController<Restaurant>!
+    var restaurants: [Restaurant] = []
+//        Restaurant(name: "pushok", type: "eatery", location: "Tokyo", image: "pushok.jpg", isVisited: false),
+//        Restaurant(name: "cookies", type: "restaurant", location: "Oman", image: "cookies.jpg", isVisited: false),
+//        Restaurant(name: "flowers", type: "cafe", location: "Rotterdam", image: "flowers.jpg", isVisited: false),
+//        Restaurant(name: "funny cat", type: "fast food", location: "Tahiti", image: "funny cat.jpg", isVisited: false),
+//        Restaurant(name: "donuts", type: "restaurant", location: "Miami", image: "donuts.jpg", isVisited: false),
+//        Restaurant(name: "Assol put?", type: "fast food", location: "Anapa", image: "Assol put?.jpg", isVisited: false),
+//        Restaurant(name: "space", type: "cafe", location: "Pretoria", image: "space.jpg", isVisited: false),
+//        Restaurant(name: "bitch beach", type: "restaurant", location: "Volgograd", image: "bitch beach.jpg", isVisited: false),
+//        Restaurant(name: "hot dogs", type: "fast food", location: "Berlin", image: "hot dogs.jpg", isVisited: false),
+//        Restaurant(name: "insides", type: "eatery", location: "Vatican", image: "insides.jpg", isVisited: false),
+//        Restaurant(name: "horse meat (halal)", type: "eatery", location: "Moscow", image: "horse meat (halal)", isVisited: false)]
 
     // site with image https://bipbap.ru/pictures/kartinki-500x500-foto.html
+    
+    @IBAction func close(segue: UIStoryboardSegue) {
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = true
@@ -37,11 +43,21 @@ class EateriesTableViewController: UITableViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         tableView.separatorColor = .red
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            
+            do {
+                try fetchResultController.performFetch()
+                restaurants = fetchResultController.fetchedObjects!
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -55,7 +71,7 @@ class EateriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EateriesTableViewCell
         
-        cell.thumbnailImage.image = UIImage(named: restaurants[indexPath.row].image)
+        cell.thumbnailImage.image = UIImage(data: restaurants[indexPath.row].image! as Data) 
         cell.thumbnailImage.layer.cornerRadius = 32.5
         cell.thumbnailImage.clipsToBounds = true
         
@@ -110,8 +126,8 @@ class EateriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let share = UIContextualAction(style: .destructive, title: "Поделиться") {  (contextualAction, view, boolValue) in
-            let defaulText = "Я сейчас в " + self.restaurants[indexPath.row].name
-            if let image = UIImage(named: self.restaurants[indexPath.row].image) {
+            let defaulText = "Я сейчас в " + self.restaurants[indexPath.row].name!
+            if let image = UIImage(data: self.restaurants[indexPath.row].image! as Data) {
                 let activityController = UIActivityViewController(activityItems: [defaulText, image], applicationActivities: nil)
                 self.present(activityController, animated: true, completion: nil)
             }
