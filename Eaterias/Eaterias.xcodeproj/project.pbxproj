@@ -20,6 +20,8 @@
 		22983919296D7A4200AE7C39 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22983918296D7A4200AE7C39 /* CoreDataStack.swift */; };
 		2298391C296D7C1800AE7C39 /* Eateries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2298391A296D7C1800AE7C39 /* Eateries.xcdatamodeld */; };
 		22A0BBC22959BF80004D504F /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0BBC12959BF80004D504F /* RateViewController.swift */; };
+		22D6074D296EFB4C00EDFBD3 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6074C296EFB4C00EDFBD3 /* ContentViewController.swift */; };
+		22D6074F296EFB6900EDFBD3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6074E296EFB6900EDFBD3 /* PageViewController.swift */; };
 		22DD8F1D2959F711003BE28A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DD8F1C2959F711003BE28A /* MapViewController.swift */; };
 		22DD8F202959F778003BE28A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DD8F1F2959F778003BE28A /* MapKit.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		22983918296D7A4200AE7C39 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2298391B296D7C1800AE7C39 /* Eateries.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Eateries.xcdatamodel; sourceTree = "<group>"; };
 		22A0BBC12959BF80004D504F /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		22D6074C296EFB4C00EDFBD3 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		22D6074E296EFB6900EDFBD3 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		22DD8F1C2959F711003BE28A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		22DD8F1F2959F778003BE28A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -86,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				2222B2E629571E5E00E65C3C /* Detail */,
+				22D60750296EFB7600EDFBD3 /* Page */,
 				2229BE0C29531F31001DDA97 /* AppDelegate.swift */,
 				2298391A296D7C1800AE7C39 /* Eateries.xcdatamodeld */,
 				22DD8F1C2959F711003BE28A /* MapViewController.swift */,
@@ -101,6 +106,15 @@
 				2229BE1A29531F32001DDA97 /* Info.plist */,
 			);
 			path = Eaterias;
+			sourceTree = "<group>";
+		};
+		22D60750296EFB7600EDFBD3 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				22D6074E296EFB6900EDFBD3 /* PageViewController.swift */,
+				22D6074C296EFB4C00EDFBD3 /* ContentViewController.swift */,
+			);
+			path = Page;
 			sourceTree = "<group>";
 		};
 		22DD8F1E2959F778003BE28A /* Frameworks */ = {
@@ -186,11 +200,13 @@
 				2229BE0D29531F31001DDA97 /* AppDelegate.swift in Sources */,
 				223DAF442955F265009AEA76 /* EateryDetailViewController.swift in Sources */,
 				2298391C296D7C1800AE7C39 /* Eateries.xcdatamodeld in Sources */,
+				22D6074D296EFB4C00EDFBD3 /* ContentViewController.swift in Sources */,
 				22DD8F1D2959F711003BE28A /* MapViewController.swift in Sources */,
 				2229BE2129531F87001DDA97 /* EateriesTableViewController.swift in Sources */,
 				22983919296D7A4200AE7C39 /* CoreDataStack.swift in Sources */,
 				22817CB2295C8B60002F20C2 /* NewEteryTableViewController.swift in Sources */,
 				2229BE0F29531F31001DDA97 /* SceneDelegate.swift in Sources */,
+				22D6074F296EFB6900EDFBD3 /* PageViewController.swift in Sources */,
 				22A0BBC22959BF80004D504F /* RateViewController.swift in Sources */,
 				2229BE2329532268001DDA97 /* EateriesTableViewCell.swift in Sources */,
 			);
@@ -343,9 +359,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eaterias/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -357,7 +376,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -370,9 +389,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eaterias/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -384,7 +406,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

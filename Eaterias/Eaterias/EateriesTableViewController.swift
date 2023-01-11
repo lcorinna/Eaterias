@@ -8,34 +8,50 @@
 import UIKit
 import CoreData
 
-class EateriesTableViewController: UITableViewController {
+class EateriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var fetchResultController: NSFetchedResultsController<Restaurant>!
+    var searchController: UISearchController!
+    var filteredResultArray: [Restaurant] = []
     var restaurants: [Restaurant] = []
-//        Restaurant(name: "pushok", type: "eatery", location: "Tokyo", image: "pushok.jpg", isVisited: false),
-//        Restaurant(name: "cookies", type: "restaurant", location: "Oman", image: "cookies.jpg", isVisited: false),
-//        Restaurant(name: "flowers", type: "cafe", location: "Rotterdam", image: "flowers.jpg", isVisited: false),
-//        Restaurant(name: "funny cat", type: "fast food", location: "Tahiti", image: "funny cat.jpg", isVisited: false),
-//        Restaurant(name: "donuts", type: "restaurant", location: "Miami", image: "donuts.jpg", isVisited: false),
-//        Restaurant(name: "Assol put?", type: "fast food", location: "Anapa", image: "Assol put?.jpg", isVisited: false),
-//        Restaurant(name: "space", type: "cafe", location: "Pretoria", image: "space.jpg", isVisited: false),
-//        Restaurant(name: "bitch beach", type: "restaurant", location: "Volgograd", image: "bitch beach.jpg", isVisited: false),
-//        Restaurant(name: "hot dogs", type: "fast food", location: "Berlin", image: "hot dogs.jpg", isVisited: false),
-//        Restaurant(name: "insides", type: "eatery", location: "Vatican", image: "insides.jpg", isVisited: false),
-//        Restaurant(name: "horse meat (halal)", type: "eatery", location: "Moscow", image: "horse meat (halal)", isVisited: false)]
-
+    //        Restaurant(name: "pushok", type: "eatery", location: "Tokyo", image: "pushok.jpg", isVisited: false),
+    //        Restaurant(name: "cookies", type: "restaurant", location: "Oman", image: "cookies.jpg", isVisited: false),
+    //        Restaurant(name: "flowers", type: "cafe", location: "Rotterdam", image: "flowers.jpg", isVisited: false),
+    //        Restaurant(name: "funny cat", type: "fast food", location: "Tahiti", image: "funny cat.jpg", isVisited: false),
+    //        Restaurant(name: "donuts", type: "restaurant", location: "Miami", image: "donuts.jpg", isVisited: false),
+    //        Restaurant(name: "Assol put?", type: "fast food", location: "Anapa", image: "Assol put?.jpg", isVisited: false),
+    //        Restaurant(name: "space", type: "cafe", location: "Pretoria", image: "space.jpg", isVisited: false),
+    //        Restaurant(name: "bitch beach", type: "restaurant", location: "Volgograd", image: "bitch beach.jpg", isVisited: false),
+    //        Restaurant(name: "hot dogs", type: "fast food", location: "Berlin", image: "hot dogs.jpg", isVisited: false),
+    //        Restaurant(name: "insides", type: "eatery", location: "Vatican", image: "insides.jpg", isVisited: false),
+    //        Restaurant(name: "horse meat (halal)", type: "eatery", location: "Moscow", image: "horse meat (halal)", isVisited: false)]
+    
     // site with image https://bipbap.ru/pictures/kartinki-500x500-foto.html
     
     @IBAction func close(segue: UIStoryboardSegue) {
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.hidesBarsOnSwipe = true
     }
     
+    func filterContentFor(searchText text: String) {
+        filteredResultArray = restaurants.filter { (restaurant) -> Bool in
+            return (restaurant.name?.lowercased().contains(text.lowercased()))!
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.delegate = self //т.к. подписалить на протокол UISearchResultsUpdating
+        searchController.searchBar.barTintColor = .green
+        searchController.searchBar.tintColor = .red
+        definesPresentationContext = true //убираем поле поиска при переходе в инфо
         
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableView.automaticDimension
@@ -50,6 +66,7 @@ class EateriesTableViewController: UITableViewController {
         
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
             fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
             
             do {
                 try fetchResultController.performFetch()
@@ -60,26 +77,77 @@ class EateriesTableViewController: UITableViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let pageVC = storyboard?.instantiateViewController(withIdentifier: "pageViewController") as? PageViewController {
+            pageVC.modalPresentationStyle = .fullScreen
+            present(pageVC, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Fetch results
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert: guard let indexPath = newIndexPath else { break }
+            tableView.insertRows(at: [indexPath], with: .fade)
+        case .delete: guard let indexPath = newIndexPath else { break }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        case .update: guard let indexPath = newIndexPath else { break }
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        default:
+            tableView.reloadData()
+        }
+        restaurants = controller.fetchedObjects as! [Restaurant]
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredResultArray.count
+        }
         return restaurants.count
+    }
+    
+    func restaurantToDisplayAt(indexPath: IndexPath) -> Restaurant {
+        let restaurant: Restaurant
+        if searchController.isActive && searchController.searchBar.text != "" {
+            restaurant = filteredResultArray[indexPath.row]
+        } else {
+            restaurant = restaurants[indexPath.row]
+        }
+        return restaurant
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EateriesTableViewCell
         
-        cell.thumbnailImage.image = UIImage(data: restaurants[indexPath.row].image! as Data) 
+        let restaurant = restaurantToDisplayAt(indexPath: indexPath)
+        
+        cell.thumbnailImage.image = UIImage(data: restaurant.image! as Data)
         cell.thumbnailImage.layer.cornerRadius = 32.5
         cell.thumbnailImage.clipsToBounds = true
         
-        cell.nameLabel.text =  restaurants[indexPath.row].name
-        cell.locationLabel.text = restaurants[indexPath.row].location
-        cell.typeLabel.text = restaurants[indexPath.row].type
+        cell.nameLabel.text =  restaurant.name
+        cell.locationLabel.text = restaurant.location
+        cell.typeLabel.text = restaurant.type
         
-        cell.accessoryType = self.restaurants[indexPath.row].isVisited ? .checkmark : .none
+        cell.accessoryType = restaurant.isVisited ? .checkmark : .none
         
         return cell
     }
@@ -135,6 +203,16 @@ class EateriesTableViewController: UITableViewController {
         let delete = UIContextualAction(style: .destructive, title: "Удалить") {  (contextualAction, view, boolValue) in
             self.restaurants.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+                let objectToDelete = self.fetchResultController.object(at: indexPath)
+                context.delete(objectToDelete)
+                
+                do {
+                    try context.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
         }
         
         share.backgroundColor = .purple
@@ -171,8 +249,30 @@ class EateriesTableViewController: UITableViewController {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let dvc = segue.destination as! EateryDetailViewController
-                dvc.restaraunt = self.restaurants[indexPath.row]
+                dvc.restaraunt = restaurantToDisplayAt(indexPath: indexPath)
             }
         }
+    }
+}
+
+extension EateriesTableViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentFor(searchText: searchController.searchBar.text!)
+        tableView.reloadData()
+    }
+}
+
+extension EateriesTableViewController: UISearchBarDelegate {
+    
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if searchBar.text == "" {
+            navigationController?.hidesBarsOnSwipe = false
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        navigationController?.hidesBarsOnSwipe = true
     }
 }
