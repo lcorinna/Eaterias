@@ -14,19 +14,6 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
     var searchController: UISearchController!
     var filteredResultArray: [Restaurant] = []
     var restaurants: [Restaurant] = []
-    //        Restaurant(name: "pushok", type: "eatery", location: "Tokyo", image: "pushok.jpg", isVisited: false),
-    //        Restaurant(name: "cookies", type: "restaurant", location: "Oman", image: "cookies.jpg", isVisited: false),
-    //        Restaurant(name: "flowers", type: "cafe", location: "Rotterdam", image: "flowers.jpg", isVisited: false),
-    //        Restaurant(name: "funny cat", type: "fast food", location: "Tahiti", image: "funny cat.jpg", isVisited: false),
-    //        Restaurant(name: "donuts", type: "restaurant", location: "Miami", image: "donuts.jpg", isVisited: false),
-    //        Restaurant(name: "Assol put?", type: "fast food", location: "Anapa", image: "Assol put?.jpg", isVisited: false),
-    //        Restaurant(name: "space", type: "cafe", location: "Pretoria", image: "space.jpg", isVisited: false),
-    //        Restaurant(name: "bitch beach", type: "restaurant", location: "Volgograd", image: "bitch beach.jpg", isVisited: false),
-    //        Restaurant(name: "hot dogs", type: "fast food", location: "Berlin", image: "hot dogs.jpg", isVisited: false),
-    //        Restaurant(name: "insides", type: "eatery", location: "Vatican", image: "insides.jpg", isVisited: false),
-    //        Restaurant(name: "horse meat (halal)", type: "eatery", location: "Moscow", image: "horse meat (halal)", isVisited: false)]
-    
-    // site with image https://bipbap.ru/pictures/kartinki-500x500-foto.html
     
     @IBAction func close(segue: UIStoryboardSegue) {
     }
@@ -49,7 +36,7 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         searchController.obscuresBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.delegate = self //т.к. подписалить на протокол UISearchResultsUpdating
-//        searchController.searchBar.barTintColor = .green
+        //        searchController.searchBar.barTintColor = .green
         definesPresentationContext = true //убираем поле поиска при переходе в инфо
         
         tableView.estimatedRowHeight = 85
@@ -230,28 +217,6 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         
         return swipeActions
     }
-    
-    //устаревшая функция редактирования действий
-    //    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    //
-    //        let share = UITableViewRowAction(style: .default, title: "Поделиться") { (action, indexPath) in
-    //            let defaulText = "Я сейчас в " + self.restaurantImage[indexPath.row]
-    //            if let image = UIImage(named: self.restaurantNames[indexPath.row]) {
-    //                let activityController = UIActivityViewController(activityItems: [defaulText, image], applicationActivities: nil)
-    //                self.present(activityController, animated: true, completion: nil)
-    //            }
-    //        }
-    //
-    //        let delete = UITableViewRowAction(style: .default, title: "Удалить") { (action, indexPath) in
-    //            self.restaurantNames.remove(at: indexPath.row)
-    //            self.restaurantImage.remove(at: indexPath.row)
-    //            self.restaurantIsVisited.remove(at: indexPath.row)
-    //            tableView.deleteRows(at: [indexPath], with: .fade)
-    //        }
-    //
-    //        share.backgroundColor = .purple
-    //        return [delete, share]
-    //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailSegue" {

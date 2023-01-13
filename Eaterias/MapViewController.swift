@@ -51,7 +51,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         let rightImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-
+        
         rightImage.image = UIImage(data: restaurant.image! as Data)
         annotationView?.rightCalloutAccessoryView = rightImage
         
