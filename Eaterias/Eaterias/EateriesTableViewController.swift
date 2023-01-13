@@ -49,8 +49,7 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         searchController.obscuresBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.delegate = self //т.к. подписалить на протокол UISearchResultsUpdating
-        searchController.searchBar.barTintColor = .green
-        searchController.searchBar.tintColor = .red
+//        searchController.searchBar.barTintColor = .green
         definesPresentationContext = true //убираем поле поиска при переходе в инфо
         
         tableView.estimatedRowHeight = 85
@@ -79,6 +78,11 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let userDefaults = UserDefaults.standard
+        let wasIntroWatched = userDefaults.bool(forKey: "wasIntroWatched")
+        
+        guard !wasIntroWatched else { return }
         
         if let pageVC = storyboard?.instantiateViewController(withIdentifier: "pageViewController") as? PageViewController {
             pageVC.modalPresentationStyle = .fullScreen
@@ -150,6 +154,10 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         cell.accessoryType = restaurant.isVisited ? .checkmark : .none
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //снимает выделение, если сделать шаг назад с инфо ресторана
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

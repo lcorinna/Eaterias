@@ -19,7 +19,11 @@
 		22817CB2295C8B60002F20C2 /* NewEteryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22817CB1295C8B60002F20C2 /* NewEteryTableViewController.swift */; };
 		22983919296D7A4200AE7C39 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22983918296D7A4200AE7C39 /* CoreDataStack.swift */; };
 		2298391C296D7C1800AE7C39 /* Eateries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2298391A296D7C1800AE7C39 /* Eateries.xcdatamodeld */; };
+		2298CFAE297027720023A921 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298CFAD297027720023A921 /* AboutTableViewController.swift */; };
 		22A0BBC22959BF80004D504F /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0BBC12959BF80004D504F /* RateViewController.swift */; };
+		22A0FCE629704E5000D09155 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0FCE529704E5000D09155 /* WebViewController.swift */; };
+		22D188242971AE9D00F3307D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22D188262971AE9D00F3307D /* Localizable.strings */; };
+		22D188292971AF1000F3307D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22D1882B2971AF1000F3307D /* Localizable.strings */; };
 		22D6074D296EFB4C00EDFBD3 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6074C296EFB4C00EDFBD3 /* ContentViewController.swift */; };
 		22D6074F296EFB6900EDFBD3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6074E296EFB6900EDFBD3 /* PageViewController.swift */; };
 		22DD8F1D2959F711003BE28A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DD8F1C2959F711003BE28A /* MapViewController.swift */; };
@@ -41,7 +45,13 @@
 		22817CB1295C8B60002F20C2 /* NewEteryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEteryTableViewController.swift; sourceTree = "<group>"; };
 		22983918296D7A4200AE7C39 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2298391B296D7C1800AE7C39 /* Eateries.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Eateries.xcdatamodel; sourceTree = "<group>"; };
+		2298CFAD297027720023A921 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		22A0BBC12959BF80004D504F /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		22A0FCE529704E5000D09155 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		22D188202971AA4800F3307D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		22D188212971AA5400F3307D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		22D188252971AE9D00F3307D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		22D1882A2971AF1000F3307D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		22D6074C296EFB4C00EDFBD3 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		22D6074E296EFB6900EDFBD3 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		22DD8F1C2959F711003BE28A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +99,8 @@
 		2229BE0B29531F31001DDA97 /* Eaterias */ = {
 			isa = PBXGroup;
 			children = (
+				22D188262971AE9D00F3307D /* Localizable.strings */,
+				22D1882B2971AF1000F3307D /* Localizable.strings */,
 				2222B2E629571E5E00E65C3C /* Detail */,
 				22D60750296EFB7600EDFBD3 /* Page */,
 				2229BE0C29531F31001DDA97 /* AppDelegate.swift */,
@@ -96,6 +108,8 @@
 				22DD8F1C2959F711003BE28A /* MapViewController.swift */,
 				2229BE0E29531F31001DDA97 /* SceneDelegate.swift */,
 				2229BE1229531F31001DDA97 /* Main.storyboard */,
+				22A0FCE529704E5000D09155 /* WebViewController.swift */,
+				2298CFAD297027720023A921 /* AboutTableViewController.swift */,
 				22983918296D7A4200AE7C39 /* CoreDataStack.swift */,
 				22A0BBC12959BF80004D504F /* RateViewController.swift */,
 				22817CB1295C8B60002F20C2 /* NewEteryTableViewController.swift */,
@@ -167,6 +181,8 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				fr,
 			);
 			mainGroup = 2229BE0029531F30001DDA97;
 			productRefGroup = 2229BE0A29531F31001DDA97 /* Products */;
@@ -183,7 +199,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D188292971AF1000F3307D /* Localizable.strings in Resources */,
 				2229BE1929531F32001DDA97 /* LaunchScreen.storyboard in Resources */,
+				22D188242971AE9D00F3307D /* Localizable.strings in Resources */,
 				2229BE1629531F32001DDA97 /* Assets.xcassets in Resources */,
 				2229BE1429531F31001DDA97 /* Main.storyboard in Resources */,
 			);
@@ -207,7 +225,9 @@
 				22817CB2295C8B60002F20C2 /* NewEteryTableViewController.swift in Sources */,
 				2229BE0F29531F31001DDA97 /* SceneDelegate.swift in Sources */,
 				22D6074F296EFB6900EDFBD3 /* PageViewController.swift in Sources */,
+				2298CFAE297027720023A921 /* AboutTableViewController.swift in Sources */,
 				22A0BBC22959BF80004D504F /* RateViewController.swift in Sources */,
+				22A0FCE629704E5000D09155 /* WebViewController.swift in Sources */,
 				2229BE2329532268001DDA97 /* EateriesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +239,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				2229BE1329531F31001DDA97 /* Base */,
+				22D188202971AA4800F3307D /* de */,
+				22D188212971AA5400F3307D /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -231,6 +253,22 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		22D188262971AE9D00F3307D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22D188252971AE9D00F3307D /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		22D1882B2971AF1000F3307D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22D1882A2971AF1000F3307D /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -238,6 +276,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -299,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

@@ -76,10 +76,10 @@ class NewEteryTableViewController: UITableViewController, UIImagePickerControlle
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let alertController = UIAlertController(title: "Выберите источник", message: nil, preferredStyle: .actionSheet)
-            let cameraAction = UIAlertAction(title: "Камера", style: .default, handler: { (action) in self.chooseImagePickerAction(source: .camera) })
-            let photoAction = UIAlertAction(title: "Фото", style: .default, handler: { (action) in self.chooseImagePickerAction(source: .photoLibrary) })
-            let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+            let alertController = UIAlertController(title: NSLocalizedString("Выберите источник", comment: "Выберите источник"), message: nil, preferredStyle: .actionSheet)
+            let cameraAction = UIAlertAction(title: NSLocalizedString("Камера", comment: "Камера"), style: .default, handler: { (action) in self.chooseImagePickerAction(source: .camera) })
+            let photoAction = UIAlertAction(title: NSLocalizedString("Фото", comment: "Фото"), style: .default, handler: { (action) in self.chooseImagePickerAction(source: .photoLibrary) })
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Отмена", comment: "Отмена"), style: .default)
             
             alertController.addAction(cameraAction)
             alertController.addAction(photoAction)

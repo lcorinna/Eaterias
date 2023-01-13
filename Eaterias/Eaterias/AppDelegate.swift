@@ -17,10 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        UINavigationBar.appearance().barTintColor = .yellow
 //        UINavigationBar.appearance().tintColor = .blue
+//        
+//        UITabBar.appearance().tintColor = .red
+//        UITabBar.appearance().barTintColor = .yellow
+//        UITabBar.appearance().selectionIndicatorImage = UIImage(named: "tabSelectBG ")
         
         let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 20))
         statusBarView.backgroundColor = .yellow
-        self.window?.rootViewController?.view.insertSubview(statusBarView, at: 1)
+        self.window?.rootViewController?.view.insertSubview(statusBarView, at: 0)
         
         if let barFont = UIFont(name: "AppleSDGothicNeo-Light", size: 24) {
             UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red, NSAttributedString.Key.font: barFont]

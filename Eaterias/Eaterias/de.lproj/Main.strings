@@ -1,0 +1,93 @@
+
+/* Class = "UILabel"; text = "Value"; ObjectID = "1We-aO-ifv"; */
+"1We-aO-ifv.text" = "Wert";
+
+/* Class = "UINavigationItem"; title = "Eateries"; ObjectID = "2mA-oG-g38"; */
+"2mA-oG-g38.title" = "Restaurants";
+
+/* Class = "UITextField"; placeholder = "Адрес ресторана"; ObjectID = "4eU-Av-w0R"; */
+"4eU-Av-w0R.placeholder" = "Adresse des Restaurants";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "6YZ-r4-Scs"; */
+"6YZ-r4-Scs.title" = "Root-View-Controller";
+
+/* Class = "UILabel"; text = "Адрес"; ObjectID = "F2C-xM-xYW"; */
+"F2C-xM-xYW.text" = "Die Adresse";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "GIC-8f-lLX"; */
+"GIC-8f-lLX.text" = "Ort";
+
+/* Class = "UILabel"; text = "Название"; ObjectID = "Gh5-LE-lL2"; */
+"Gh5-LE-lL2.text" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "NWU-f6-ocr"; */
+"NWU-f6-ocr.normalTitle" = "Knopf";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "PN4-no-Lq6"; */
+"PN4-no-Lq6.normalTitle" = "Knopf";
+
+/* Class = "UILabel"; text = "Тип"; ObjectID = "Vik-4u-EMy"; */
+"Vik-4u-EMy.text" = "Art";
+
+/* Class = "UINavigationItem"; title = "About us"; ObjectID = "XS7-BE-qXs"; */
+"XS7-BE-qXs.title" = "Über uns";
+
+/* Class = "UILabel"; text = "Вы там были?"; ObjectID = "azl-V0-wDf"; */
+"azl-V0-wDf.text" = "Du warst da?";
+
+/* Class = "UITextField"; placeholder = "Название ресторана"; ObjectID = "dFu-FR-Gnr"; */
+"dFu-FR-Gnr.placeholder" = "Name des Restaurants";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gRz-5d-Tlf"; */
+"gRz-5d-Tlf.normalTitle" = "Knopf";
+
+/* Class = "UITextField"; placeholder = "Тип ресторана"; ObjectID = "gwl-Gq-sS3"; */
+"gwl-Gq-sS3.placeholder" = "Restauranttyp";
+
+/* Class = "UILabel"; text = "header"; ObjectID = "iph-b4-7xy"; */
+"iph-b4-7xy.text" = "Header";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "jvV-IH-80u"; */
+"jvV-IH-80u.normalTitle" = "Knopf";
+
+/* Class = "UILabel"; text = "subheader"; ObjectID = "kJt-o6-xEY"; */
+"kJt-o6-xEY.text" = "Unterüberschrift";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kZn-NS-CqT"; */
+"kZn-NS-CqT.normalTitle" = "Knopf";
+
+/* Class = "UIButton"; configuration.title = "Да"; ObjectID = "kl0-Ax-gpe"; */
+"kl0-Ax-gpe.configuration.title" = "Ja";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kl0-Ax-gpe"; */
+"kl0-Ax-gpe.normalTitle" = "Knopf";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "lAk-CF-xZc"; */
+"lAk-CF-xZc.text" = "Art";
+
+/* Class = "UILabel"; text = "Evaluation"; ObjectID = "r8g-VR-A7f"; */
+"r8g-VR-A7f.text" = "Auswertung";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "sze-SJ-cIq"; */
+"sze-SJ-cIq.configuration.title" = "Knopf";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "sze-SJ-cIq"; */
+"sze-SJ-cIq.normalTitle" = "Knopf";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uOn-5z-OKN"; */
+"uOn-5z-OKN.normalTitle" = "Knopf";
+
+/* Class = "UIButton"; configuration.title = "Нет"; ObjectID = "vtX-bj-v4w"; */
+"vtX-bj-v4w.configuration.title" = "Nein";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vtX-bj-v4w"; */
+"vtX-bj-v4w.normalTitle" = "Knopf";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "wsO-uJ-9h7"; */
+"wsO-uJ-9h7.text" = "Name";
+
+/* Class = "UILabel"; text = "Key"; ObjectID = "wzd-zP-cTU"; */
+"wzd-zP-cTU.text" = "Taste";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "yps-iV-sHm"; */
+"yps-iV-sHm.text" = "Titel";
