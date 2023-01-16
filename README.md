@@ -11,5 +11,5 @@ At the first launch of the application, we are greeted by a PageView that also i
 The application uses CoreData frameworks to save completed results and MapKit to work with maps. The app is also available and translated into two additional languages, French and German.
 
 > Приложение использует фреймворки CoreData для сохранения завершенных результатов и MapKit для работы с картами. Приложение также доступно и переведено на два дополнительных языка, французский и немецкий.
-
+ 
 ![gif eaterias](https://github.com/lcorinna/Eaterias/blob/main/Eaterias.gif)
